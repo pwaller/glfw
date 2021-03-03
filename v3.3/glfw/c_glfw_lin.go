@@ -6,7 +6,10 @@ package glfw
 #ifdef _GLFW_WAYLAND
 	#include "glfw/src/wl_init.c"
 	#include "glfw/src/wl_monitor.c"
+	// Note: wl_window redefines _GNU_SOURCE, so undef it here.
+	#undef _GNU_SOURCE
 	#include "glfw/src/wl_window.c"
+
 	#include "glfw/src/wayland-idle-inhibit-unstable-v1-client-protocol.c"
 	#include "glfw/src/wayland-pointer-constraints-unstable-v1-client-protocol.c"
 	#include "glfw/src/wayland-relative-pointer-unstable-v1-client-protocol.c"
